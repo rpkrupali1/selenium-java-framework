@@ -1,15 +1,16 @@
 package core.framework.pages;
 
+import core.framework.base.BasePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 
-public class ProductDetailPage {
+public class ProductDetailPage extends BasePage {
 
     public ProductDetailPage(WebDriver driver) {
-        PageFactory.initElements(driver,this);
+        super(driver);
     }
 
     @FindBy(how = How.XPATH, using = "//h1[normalize-space()='About this item']")

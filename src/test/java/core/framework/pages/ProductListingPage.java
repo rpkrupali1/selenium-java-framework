@@ -1,17 +1,16 @@
 package core.framework.pages;
 
-import org.openqa.selenium.By;
+import core.framework.base.BasePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
-import org.openqa.selenium.support.PageFactory;
 
-public class ProductListingPage {
+public class ProductListingPage extends BasePage {
+
     public ProductListingPage(WebDriver driver) {
-        PageFactory.initElements(driver,this);
+        super(driver);
     }
-
     @FindBy(how = How.XPATH, using = "//span[*[text()='Sort by:']]")
     private WebElement eleSortBy;
 

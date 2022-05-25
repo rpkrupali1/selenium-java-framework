@@ -19,4 +19,5 @@ Page Object Model (POM)
 - Improve readability of code
 - Handle each page using its instance
 - Establish relation between each page
-- 
+
+Created Base Abstract class rather than page initializing in every class, this makes code mich simpler and easy to understand.
