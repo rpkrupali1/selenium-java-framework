@@ -1,5 +1,5 @@
 package core.framework.base;
 
-public class Browser {
+public class Browser extends Base{
     
 }

@@ -25,3 +25,6 @@ Created Base Abstract class rather than page initializing in every class, this m
 Page Navigation
 Using page navigation we can establish relationship between each page, so that anytime while operation is performed on one method, it may or may not return page object
 This will ensure the business logic embedded in our test code and wont loose behaviour of application.
+
+Generics:
+Extra layer of abstraction

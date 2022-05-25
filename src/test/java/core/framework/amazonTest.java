@@ -1,5 +1,6 @@
 package core.framework;
 
+import core.framework.base.Base;
 import core.framework.base.DriverContext;
 import core.framework.pages.HomePage;
 import core.framework.pages.ProductDetailPage;
@@ -13,7 +14,7 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-public class amazonTest {
+public class amazonTest extends Base {
     @BeforeTest
     public void initialize(){
         WebDriverManager.chromedriver().setup();
@@ -68,15 +69,15 @@ public class amazonTest {
     public void shoppingTest2() throws InterruptedException {
         Thread.sleep(1000);
         //navigate to television and filter by brand
-        HomePage homePage = new HomePage();
-        homePage.navigateToTelevision();
-        homePage.filterBySamsung();
+        CurrentPage = GetInstance(HomePage.class);
+        CurrentPage.As(HomePage.class).navigateToTelevision();
+        CurrentPage.As(HomePage.class).filterBySamsung();
 
         //sort by price high to low and select second product listing
-        ProductListingPage productListingPage = new ProductListingPage();
-        productListingPage.sortByPriceHighToLow();
+        CurrentPage = GetInstance(ProductListingPage.class);
+        CurrentPage.As(ProductListingPage.class).sortByPriceHighToLow();
         String originalWindow = DriverContext.Driver.getWindowHandle();
-        ProductDetailPage productDetailPage = (ProductDetailPage) productListingPage.clickOnSecondProductListing();
+        CurrentPage = CurrentPage.As(ProductListingPage.class).clickOnSecondProductListing();
 
         // Loop through until we find a new window handle
         for (String windowHandle : DriverContext.Driver.getWindowHandles()) {
@@ -85,8 +86,8 @@ public class amazonTest {
                 break;
             }
         }
-        Assert.assertEquals(productDetailPage.isAboutThisHeaderDisplayed(),true);
-        System.out.println(productDetailPage.getProductDetails());
+        Assert.assertEquals(CurrentPage.As(ProductDetailPage.class).isAboutThisHeaderDisplayed(),true);
+        System.out.println(CurrentPage.As(ProductDetailPage.class).getProductDetails());
 
         DriverContext.Driver.quit();
     }
