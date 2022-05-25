@@ -12,3 +12,11 @@ This framework offers:
 `"EVERYTHING SHOULD BE AS SIMPLE AS POSSIBLE, BUT NOT SIMPLER"`
 
 - Albert Einstein
+
+Page Object Model (POM)
+- Reduce number of duplicate code
+- Maintain object in separate class file
+- Improve readability of code
+- Handle each page using its instance
+- Establish relation between each page
+- 
