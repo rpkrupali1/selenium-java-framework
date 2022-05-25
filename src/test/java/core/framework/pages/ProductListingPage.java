@@ -27,8 +27,9 @@ public class ProductListingPage extends BasePage {
         Thread.sleep(1000);
     }
 
-    public void clickOnSecondProductListing() throws InterruptedException {
+    public BasePage clickOnSecondProductListing() throws InterruptedException {
         eleSecondProduct.click();
         Thread.sleep(1000);
+        return new ProductDetailPage();
     }
 }

@@ -76,7 +76,7 @@ public class amazonTest {
         ProductListingPage productListingPage = new ProductListingPage();
         productListingPage.sortByPriceHighToLow();
         String originalWindow = DriverContext.Driver.getWindowHandle();
-        productListingPage.clickOnSecondProductListing();
+        ProductDetailPage productDetailPage = (ProductDetailPage) productListingPage.clickOnSecondProductListing();
 
         // Loop through until we find a new window handle
         for (String windowHandle : DriverContext.Driver.getWindowHandles()) {
@@ -85,8 +85,6 @@ public class amazonTest {
                 break;
             }
         }
-
-        ProductDetailPage productDetailPage = new ProductDetailPage();
         Assert.assertEquals(productDetailPage.isAboutThisHeaderDisplayed(),true);
         System.out.println(productDetailPage.getProductDetails());
 
