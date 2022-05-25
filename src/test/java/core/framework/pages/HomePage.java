@@ -7,8 +7,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
 public class HomePage extends BasePage {
-    public HomePage(WebDriver driver) {
-        super(driver);
+    public HomePage() {
+        super();
     }
     @FindBy(how = How.XPATH, using = "//*[@id='nav-hamburger-menu']")
     private WebElement eleHamburgerMenu;

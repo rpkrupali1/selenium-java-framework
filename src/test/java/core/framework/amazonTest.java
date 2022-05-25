@@ -1,5 +1,6 @@
 package core.framework;
 
+import core.framework.base.DriverContext;
 import core.framework.pages.HomePage;
 import core.framework.pages.ProductDetailPage;
 import core.framework.pages.ProductListingPage;
@@ -13,12 +14,11 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 public class amazonTest {
-    private WebDriver _driver;
     @BeforeTest
     public void initialize(){
         WebDriverManager.chromedriver().setup();
-        _driver = new ChromeDriver();
-        _driver.get("https://www.amazon.in/");
+        DriverContext.Driver = new ChromeDriver();
+        DriverContext.Driver.get("https://www.amazon.in/");
     }
 
     @Test
@@ -68,28 +68,28 @@ public class amazonTest {
     public void shoppingTest2() throws InterruptedException {
         Thread.sleep(1000);
         //navigate to television and filter by brand
-        HomePage homePage = new HomePage(_driver);
+        HomePage homePage = new HomePage();
         homePage.navigateToTelevision();
         homePage.filterBySamsung();
 
         //sort by price high to low and select second product listing
-        ProductListingPage productListingPage = new ProductListingPage(_driver);
+        ProductListingPage productListingPage = new ProductListingPage();
         productListingPage.sortByPriceHighToLow();
-        String originalWindow = _driver.getWindowHandle();
+        String originalWindow = DriverContext.Driver.getWindowHandle();
         productListingPage.clickOnSecondProductListing();
 
         // Loop through until we find a new window handle
-        for (String windowHandle : _driver.getWindowHandles()) {
+        for (String windowHandle : DriverContext.Driver.getWindowHandles()) {
             if (!originalWindow.contentEquals(windowHandle)) {
-                _driver.switchTo().window(windowHandle);
+                DriverContext.Driver.switchTo().window(windowHandle);
                 break;
             }
         }
 
-        ProductDetailPage productDetailPage = new ProductDetailPage(_driver);
+        ProductDetailPage productDetailPage = new ProductDetailPage();
         Assert.assertEquals(productDetailPage.isAboutThisHeaderDisplayed(),true);
         System.out.println(productDetailPage.getProductDetails());
 
-        _driver.quit();
+        DriverContext.Driver.quit();
     }
 }

@@ -8,8 +8,8 @@ import org.openqa.selenium.support.How;
 
 public class ProductListingPage extends BasePage {
 
-    public ProductListingPage(WebDriver driver) {
-        super(driver);
+    public ProductListingPage() {
+        super();
     }
     @FindBy(how = How.XPATH, using = "//span[*[text()='Sort by:']]")
     private WebElement eleSortBy;

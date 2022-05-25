@@ -9,8 +9,8 @@ import org.openqa.selenium.support.PageFactory;
 
 public class ProductDetailPage extends BasePage {
 
-    public ProductDetailPage(WebDriver driver) {
-        super(driver);
+    public ProductDetailPage() {
+        super();
     }
 
     @FindBy(how = How.XPATH, using = "//h1[normalize-space()='About this item']")
