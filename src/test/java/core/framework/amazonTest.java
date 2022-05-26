@@ -1,7 +1,8 @@
 package core.framework;
 
-import core.framework.base.Base;
+import core.framework.base.BrowserType;
 import core.framework.base.DriverContext;
+import core.framework.base.FrameworkInitialize;
 import core.framework.pages.HomePage;
 import core.framework.pages.ProductDetailPage;
 import core.framework.pages.ProductListingPage;
@@ -14,12 +15,12 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-public class amazonTest extends Base {
+public class amazonTest extends FrameworkInitialize {
     @BeforeTest
     public void initialize(){
-        WebDriverManager.chromedriver().setup();
-        DriverContext.Driver = new ChromeDriver();
-        DriverContext.Driver.get("https://www.amazon.in/");
+        InitializeBrowser(BrowserType.Chrome);
+        DriverContext.Browser.GoToUrl("https://www.amazon.in/");
+        DriverContext.Browser.Maximize();
     }
 
     @Test
