@@ -6,6 +6,7 @@ import core.framework.base.FrameworkInitialize;
 import core.framework.pages.HomePage;
 import core.framework.pages.ProductDetailPage;
 import core.framework.pages.ProductListingPage;
+import core.framework.utilities.Logs;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -18,8 +19,12 @@ import org.testng.annotations.Test;
 public class amazonTest extends FrameworkInitialize {
     @BeforeTest
     public void initialize(){
+        Logs logs = new Logs();
+        logs.CreateLogFile();
         InitializeBrowser(BrowserType.Chrome);
+        logs.Write("Test Started");
         DriverContext.Browser.GoToUrl("https://www.amazon.in/");
+        logs.Write("Navigated to url https://www.amazon.in/");
         DriverContext.Browser.Maximize();
     }
 
