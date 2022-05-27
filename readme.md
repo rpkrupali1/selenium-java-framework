@@ -28,3 +28,10 @@ This will ensure the business logic embedded in our test code and wont loose beh
 
 Generics:
 Extra layer of abstraction
+
+Configuration:
+- Application URL
+- Browser
+- TestType
+- -Technology
+- Log path

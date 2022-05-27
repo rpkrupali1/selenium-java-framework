@@ -3,6 +3,7 @@ package core.framework;
 import core.framework.base.BrowserType;
 import core.framework.base.DriverContext;
 import core.framework.base.FrameworkInitialize;
+import core.framework.config.ConfigReader;
 import core.framework.pages.HomePage;
 import core.framework.pages.ProductDetailPage;
 import core.framework.pages.ProductListingPage;
@@ -16,9 +17,12 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
+import java.io.IOException;
+
 public class amazonTest extends FrameworkInitialize {
     @BeforeTest
-    public void initialize(){
+    public void initialize() throws IOException {
+        ConfigReader.PopulateSettings();
         Logs logs = new Logs();
         logs.CreateLogFile();
         InitializeBrowser(BrowserType.Chrome);
