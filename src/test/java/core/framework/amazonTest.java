@@ -22,7 +22,7 @@ import java.io.IOException;
 public class amazonTest extends FrameworkInitialize {
     @BeforeTest
     public void initialize() throws IOException {
-        ConfigReader.PopulateSettings();
+        //ConfigReader.PopulateSettings();
         Logs logs = new Logs();
         logs.CreateLogFile();
         InitializeBrowser(BrowserType.Chrome);
