@@ -15,7 +15,6 @@ public class ControlBase implements Control{
     @Override
     public void click() {
         element.click();
-
     }
 
     @Override

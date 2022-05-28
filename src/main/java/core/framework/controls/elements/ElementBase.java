@@ -7,4 +7,5 @@ public class ElementBase extends ControlBase implements Element{
     public ElementBase(WebElement element) {
         super(element);
     }
+
 }

@@ -1,24 +1,21 @@
 package core.framework.pages;
 
 import core.framework.base.BasePage;
+import core.framework.controls.elements.Element;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
 public class ProductListingPage extends BasePage {
-
-    public ProductListingPage() {
-        super();
-    }
     @FindBy(how = How.XPATH, using = "//span[*[text()='Sort by:']]")
-    private WebElement eleSortBy;
+    private Element eleSortBy;
 
     @FindBy(how = How.XPATH, using = "//*[@class='a-popover-inner']/ul/li/a[text()='Price: High to Low']")
-    private WebElement elePriceHighToLow;
+    private Element elePriceHighToLow;
 
     @FindBy(how = How.XPATH, using = "//*[@data-component-type='s-search-result'][2]")
-    private WebElement eleSecondProduct;
+    private Element eleSecondProduct;
 
     public void sortByPriceHighToLow() throws InterruptedException {
         eleSortBy.click();
