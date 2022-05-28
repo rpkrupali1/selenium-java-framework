@@ -1,4 +1,8 @@
 package core.framework.controls.elements;
 
-public interface Checkbox {
+import core.framework.controls.api.ImplementedBy;
+
+@ImplementedBy(CheckboxBase.class)
+public interface Checkbox
+{
 }

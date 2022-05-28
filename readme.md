@@ -35,3 +35,7 @@ Configuration:
 - TestType
 - -Technology
 - Log path
+
+
+Custom Controls:
+Custom controls used to have own controls and write our own custom methods which selenium does not provide out of box.
