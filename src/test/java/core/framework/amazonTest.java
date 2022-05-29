@@ -77,7 +77,7 @@ public class amazonTest extends FrameworkInitialize {
 
     @Test
     public void shoppingTest2() throws InterruptedException {
-        Thread.sleep(1000);
+        //Thread.sleep(1000);
         //navigate to television and filter by brand
         CurrentPage = GetInstance(HomePage.class);
         CurrentPage.As(HomePage.class).navigateToTelevision();
