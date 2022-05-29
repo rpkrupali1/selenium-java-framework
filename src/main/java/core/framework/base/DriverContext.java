@@ -28,7 +28,7 @@ public class DriverContext extends Base{
 
         if(!jsReady)
             wait.until(jsLoad);
-//        else
-//            Settings.Logs.Write("Page is ready !");
+        else
+            Settings.Logs.Write("Page is ready !");
     }
 }

@@ -1,5 +1,6 @@
 package core.framework.controls.internals;
 
+import core.framework.config.Settings;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Coordinates;
 
@@ -15,6 +16,7 @@ public class ControlBase implements Control{
     @Override
     public void click() {
         element.click();
+        Settings.Logs.Write("Clicked on element");
     }
 
     @Override
@@ -25,6 +27,7 @@ public class ControlBase implements Control{
     @Override
     public void sendKeys(CharSequence... keysToSend) {
         element.sendKeys(keysToSend);
+        Settings.Logs.Write("Entered text " + keysToSend + " for element");
     }
 
     @Override
