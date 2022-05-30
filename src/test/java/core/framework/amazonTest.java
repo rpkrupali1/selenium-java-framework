@@ -4,6 +4,7 @@ import core.framework.base.BrowserType;
 import core.framework.base.DriverContext;
 import core.framework.base.FrameworkInitialize;
 import core.framework.config.ConfigReader;
+import core.framework.config.Settings;
 import core.framework.pages.HomePage;
 import core.framework.pages.ProductDetailPage;
 import core.framework.pages.ProductListingPage;
@@ -23,12 +24,12 @@ public class amazonTest extends FrameworkInitialize {
     @BeforeTest
     public void initialize() throws IOException {
         //ConfigReader.PopulateSettings();
-        Logs logs = new Logs();
-        logs.CreateLogFile();
+        Settings.Logs = new Logs();
+        Settings.Logs.CreateLogFile();
         InitializeBrowser(BrowserType.Chrome);
-        logs.Write("Test Started");
+        Settings.Logs.Write("Test Started");
         DriverContext.Browser.GoToUrl("https://www.amazon.in/");
-        logs.Write("Navigated to url https://www.amazon.in/");
+        Settings.Logs.Write("Navigated to url https://www.amazon.in/");
         DriverContext.Browser.Maximize();
     }
 
@@ -77,7 +78,7 @@ public class amazonTest extends FrameworkInitialize {
 
     @Test
     public void shoppingTest2() throws InterruptedException {
-        Thread.sleep(1000);
+        //Thread.sleep(1000);
         //navigate to television and filter by brand
         CurrentPage = GetInstance(HomePage.class);
         CurrentPage.As(HomePage.class).navigateToTelevision();

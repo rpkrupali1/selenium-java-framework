@@ -19,14 +19,14 @@ public class ProductListingPage extends BasePage {
 
     public void sortByPriceHighToLow() throws InterruptedException {
         eleSortBy.click();
-        Thread.sleep(1000);
+        //Thread.sleep(1000);
         elePriceHighToLow.click();
-        Thread.sleep(1000);
+        //Thread.sleep(1000);
     }
 
     public ProductDetailPage clickOnSecondProductListing() throws InterruptedException {
         eleSecondProduct.click();
-        Thread.sleep(1000);
+        //Thread.sleep(1000);
         return GetInstance(ProductDetailPage.class);
     }
 }
