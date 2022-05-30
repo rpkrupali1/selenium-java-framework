@@ -10,14 +10,5 @@ public class Browser extends Base{
         _driver = driver;
     }
     public BrowserType type;
-
-    public void GoToUrl(String url){
-        _driver.get(url);
-        DriverContext.WaitForPageToLoad();
-    }
-
-    public void Maximize(){
-        _driver.manage().window().maximize();
-    }
 }
 
