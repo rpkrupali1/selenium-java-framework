@@ -18,6 +18,7 @@ public class Browser extends Base{
 
     public void Maximize(){
         _driver.manage().window().maximize();
+        DriverContext.WaitForPageToLoad();
     }
 }
 
