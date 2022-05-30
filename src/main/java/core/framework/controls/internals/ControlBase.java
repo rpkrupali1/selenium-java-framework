@@ -5,6 +5,7 @@ import core.framework.config.Settings;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Coordinates;
 
+import java.util.Arrays;
 import java.util.List;
 
 public class ControlBase implements Control{
@@ -30,7 +31,7 @@ public class ControlBase implements Control{
     @Override
     public void sendKeys(CharSequence... keysToSend) {
         element.sendKeys(keysToSend);
-        Settings.Logs.Write("Entered text " + keysToSend + " for element");
+        Settings.Logs.Write("Entered text " + Arrays.toString(keysToSend) + " for element");
     }
 
     @Override

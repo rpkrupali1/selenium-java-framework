@@ -42,3 +42,9 @@ Custom controls used to have own controls and write our own custom methods which
 
 Wait:
 Explicit wait
+
+MAVEN for:
+- Build
+- Deploy
+- Test
+- Report

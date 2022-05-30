@@ -15,13 +15,13 @@ public class Logs {
     //create log file
     public void CreateLogFile(){
         try {
-            File dir = new File(System.getProperty("user.dir") + "/src/test/java/core/framework/logs");
+            var dir = new File(System.getProperty("user.dir") + "/src/test/java/core/framework/logs");
             if(!dir.exists())
                 dir.mkdir();
             //create file
-            File logFile = new File(dir + "/" + fileNameFormat + ".log");
+            var logFile = new File(dir + "/" + fileNameFormat + ".log");
             //file writer
-            FileWriter fileWriter = new FileWriter(logFile.getAbsoluteFile());
+            var fileWriter = new FileWriter(logFile.getAbsoluteFile());
             bufferedWriter = new BufferedWriter(fileWriter);
         } catch (Exception e) {
             //TODO: handle exception
