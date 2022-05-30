@@ -23,17 +23,17 @@ public class DriverContext extends Base{
         return LocalDriverContext.getLocalDriver();
     }
 
-    public static void Maximize(){
+    public static void maximize(){
         getDriver().manage().window().maximize();
-        WaitForPageToLoad();
+        waitForPageToLoad();
     }
 
-    public static void GoToUrl(String url){
+    public static void goToUrl(String url){
         getDriver().get(url);
-        WaitForPageToLoad();
+        waitForPageToLoad();
     }
 
-    public static void WaitForPageToLoad(){
+    public static void waitForPageToLoad(){
         var wait = new WebDriverWait(getDriver(), Duration.ofSeconds(30));
         JavascriptExecutor jsExecutor = (JavascriptExecutor) getDriver();
 
@@ -49,17 +49,17 @@ public class DriverContext extends Base{
             Settings.Logs.Write("Page is ready !");
     }
 
-    public static void WaitForVisible(final WebElement element){
+    public static void waitForVisible(final WebElement element){
         var wait = new WebDriverWait(getDriver(), Duration.ofSeconds(30));
         wait.until(ExpectedConditions.visibilityOf(element));
     }
 
-    public static void WaitForTextVisible(final WebElement element, String text){
+    public static void waitForTextVisible(final WebElement element, String text){
         var wait = new WebDriverWait(getDriver(), Duration.ofSeconds(30));
         wait.until(ExpectedConditions.textToBePresentInElement(element, text));
     }
 
-    public static void WaitUntilTextDisplayed(final By by, String text){
+    public static void waitUntilTextDisplayed(final By by, String text){
         var wait = new WebDriverWait(getDriver(), Duration.ofSeconds(30));
         wait.until(textDisplayed(by, text));
     }
@@ -68,12 +68,12 @@ public class DriverContext extends Base{
         return webDriver -> webDriver.findElement(by).getText().contains(text);
     }
 
-    public static void WaitForEnabled(final By by){
+    public static void waitForEnabled(final By by){
         var wait = new WebDriverWait(getDriver(), Duration.ofSeconds(30));
         wait.until(webDriver -> webDriver.findElement(by).isEnabled());
     }
 
-    public static void WaitForClickable(WebElement element){
+    public static void waitForClickable(WebElement element){
         var wait = new WebDriverWait(getDriver(), Duration.ofSeconds(30));
         wait.until(ExpectedConditions.elementToBeClickable(element));
     }
