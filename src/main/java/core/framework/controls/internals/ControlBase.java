@@ -115,11 +115,13 @@ public class ControlBase implements Control{
         return null;
     }
 
-    void waitForVisible(){
+    ControlBase waitForVisible(){
         DriverContext.waitForVisible(getWrappedElement());
+        return this;
     }
 
-    void waitForClickable(){
+    ControlBase waitForClickable(){
         DriverContext.waitForClickable(getWrappedElement());
+        return this;
     }
 }
