@@ -1,4 +1,4 @@
-package core.framework;
+package core.framework.tests;
 
 import core.framework.base.BrowserType;
 import core.framework.base.DriverContext;
