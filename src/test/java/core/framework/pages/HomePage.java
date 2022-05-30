@@ -1,6 +1,7 @@
 package core.framework.pages;
 
 import core.framework.base.BasePage;
+import core.framework.base.DriverContext;
 import core.framework.controls.elements.Element;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -22,15 +23,15 @@ public class HomePage extends BasePage {
 
     public void navigateToTelevision() throws InterruptedException {
         eleHamburgerMenu.click();
-        Thread.sleep(1000);
+        //Thread.sleep(1000);
         eleDepartment.click();
-        Thread.sleep(1000);
+        //Thread.sleep(1000);
         eleSubSection.click();
-        Thread.sleep(1000);
+        //Thread.sleep(1000);
     }
 
     public void filterBySamsung() throws InterruptedException {
         eleBrand.click();
-        Thread.sleep(1000);
+        //Thread.sleep(1000);
     }
 }

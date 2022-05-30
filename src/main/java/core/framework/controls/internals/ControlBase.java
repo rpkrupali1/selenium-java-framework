@@ -1,5 +1,6 @@
 package core.framework.controls.internals;
 
+import core.framework.base.DriverContext;
 import core.framework.config.Settings;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Coordinates;
@@ -15,7 +16,9 @@ public class ControlBase implements Control{
 
     @Override
     public void click() {
+        DriverContext.WaitForClickable(element);
         element.click();
+        DriverContext.WaitForPageToLoad();
         Settings.Logs.Write("Clicked on element");
     }
 
