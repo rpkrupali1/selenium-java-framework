@@ -17,7 +17,8 @@ public class ControlBase implements Control{
 
     @Override
     public void click() {
-        DriverContext.waitForClickable(element);
+        waitForVisible();
+        waitForClickable();
         element.click();
         DriverContext.waitForPageToLoad();
         Settings.Logs.Write("Clicked on element");
@@ -112,5 +113,13 @@ public class ControlBase implements Control{
     @Override
     public Coordinates getCoordinates() {
         return null;
+    }
+
+    void waitForVisible(){
+        DriverContext.waitForVisible(getWrappedElement());
+    }
+
+    void waitForClickable(){
+        DriverContext.waitForClickable(getWrappedElement());
     }
 }
