@@ -9,7 +9,7 @@ public class Base {
     public <TPage extends BasePage> TPage GetInstance(Class<TPage> page){
         //Object obj = PageFactory.initElements(DriverContext.Driver,page);
         //Custom factory control
-        Object obj = ControlFactory.initElements(DriverContext.Driver,page);
+        var obj = ControlFactory.initElements(DriverContext.Driver,page);
         return page.cast(obj);
     }
 }
