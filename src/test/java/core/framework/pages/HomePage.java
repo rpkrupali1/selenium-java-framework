@@ -23,7 +23,6 @@ public class HomePage extends BasePage {
 
     public void navigateToTelevision() throws InterruptedException {
         eleHamburgerMenu.click();
-        //Thread.sleep(1000);
         eleDepartment.click();
         //Thread.sleep(1000);
         eleSubSection.click();
