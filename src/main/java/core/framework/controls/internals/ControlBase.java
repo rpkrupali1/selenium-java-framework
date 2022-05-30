@@ -17,9 +17,9 @@ public class ControlBase implements Control{
 
     @Override
     public void click() {
-        DriverContext.WaitForClickable(element);
+        DriverContext.waitForClickable(element);
         element.click();
-        DriverContext.WaitForPageToLoad();
+        DriverContext.waitForPageToLoad();
         Settings.Logs.Write("Clicked on element");
     }
 

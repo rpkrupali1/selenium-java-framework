@@ -3,17 +3,12 @@ package core.framework.tests;
 import core.framework.base.BrowserType;
 import core.framework.base.DriverContext;
 import core.framework.base.FrameworkInitialize;
-import core.framework.config.ConfigReader;
 import core.framework.config.Settings;
 import core.framework.pages.HomePage;
 import core.framework.pages.ProductDetailPage;
 import core.framework.pages.ProductListingPage;
 import core.framework.utilities.Logs;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -28,8 +23,8 @@ public class amazonTest extends FrameworkInitialize {
         Settings.Logs.CreateLogFile();
         InitializeBrowser(BrowserType.Chrome);
         Settings.Logs.Write("Test Started");
-        DriverContext.Maximize();
-        DriverContext.GoToUrl("https://www.amazon.in/");
+        DriverContext.maximize();
+        DriverContext.goToUrl("https://www.amazon.in/");
         Settings.Logs.Write("Navigated to url https://www.amazon.in/");
 
     }
