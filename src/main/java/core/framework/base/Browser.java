@@ -13,6 +13,7 @@ public class Browser extends Base{
 
     public void GoToUrl(String url){
         _driver.get(url);
+        DriverContext.WaitForPageToLoad();
     }
 
     public void Maximize(){
