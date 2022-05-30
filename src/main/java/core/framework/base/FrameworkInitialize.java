@@ -32,9 +32,10 @@ public class FrameworkInitialize extends Base {
             }
         }
         //set the driver
-        DriverContext.setDriver(driver);
+        //DriverContext.setDriver(driver);
         //set the browser
-        DriverContext.Browser = new Browser(driver);
+        //DriverContext.Browser = new Browser(driver);
+        LocalDriverContext.setWebDriverThreadLocal(driver);
     }
     
 }

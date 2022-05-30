@@ -1,4 +1,4 @@
-package core.framework;
+package core.framework.tests;
 
 import core.framework.base.BrowserType;
 import core.framework.base.DriverContext;
@@ -28,9 +28,10 @@ public class amazonTest extends FrameworkInitialize {
         Settings.Logs.CreateLogFile();
         InitializeBrowser(BrowserType.Chrome);
         Settings.Logs.Write("Test Started");
-        DriverContext.Browser.GoToUrl("https://www.amazon.in/");
+        DriverContext.Maximize();
+        DriverContext.GoToUrl("https://www.amazon.in/");
         Settings.Logs.Write("Navigated to url https://www.amazon.in/");
-        DriverContext.Browser.Maximize();
+
     }
 
 //    public void shoppingTest() throws InterruptedException {
@@ -76,7 +77,7 @@ public class amazonTest extends FrameworkInitialize {
 //    }
 
     @Test
-    public void shoppingTest2() throws InterruptedException {
+    public void shoppingTest() throws InterruptedException {
         //Thread.sleep(1000);
         //navigate to television and filter by brand
         CurrentPage = GetInstance(HomePage.class);
@@ -86,19 +87,19 @@ public class amazonTest extends FrameworkInitialize {
         //sort by price high to low and select second product listing
         CurrentPage = GetInstance(ProductListingPage.class);
         CurrentPage.As(ProductListingPage.class).sortByPriceHighToLow();
-        String originalWindow = DriverContext.Driver.getWindowHandle();
+        String originalWindow = DriverContext.getDriver().getWindowHandle();
         CurrentPage = CurrentPage.As(ProductListingPage.class).clickOnSecondProductListing();
 
         // Loop through until we find a new window handle
-        for (String windowHandle : DriverContext.Driver.getWindowHandles()) {
+        for (String windowHandle : DriverContext.getDriver().getWindowHandles()) {
             if (!originalWindow.contentEquals(windowHandle)) {
-                DriverContext.Driver.switchTo().window(windowHandle);
+                DriverContext.getDriver().switchTo().window(windowHandle);
                 break;
             }
         }
         Assert.assertEquals(CurrentPage.As(ProductDetailPage.class).isAboutThisHeaderDisplayed(),true);
         System.out.println(CurrentPage.As(ProductDetailPage.class).getProductDetails());
 
-        DriverContext.Driver.quit();
+        DriverContext.getDriver().quit();
     }
 }

@@ -12,18 +12,32 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 public class DriverContext extends Base{
-    public static WebDriver Driver;
-    public static Browser Browser;
+//    public static WebDriver Driver;
+//    public static Browser Browser;
+//
+//    public static void setDriver(WebDriver driver) {
+//        Driver = driver;
+//    }
 
-    public static void setDriver(WebDriver driver) {
-        Driver = driver;
+    public static WebDriver getDriver(){
+        return LocalDriverContext.getLocalDriver();
+    }
+
+    public static void Maximize(){
+        getDriver().manage().window().maximize();
+        WaitForPageToLoad();
+    }
+
+    public static void GoToUrl(String url){
+        getDriver().get(url);
+        WaitForPageToLoad();
     }
 
     public static void WaitForPageToLoad(){
-        WebDriverWait wait = new WebDriverWait(Driver, Duration.ofSeconds(30));
-        JavascriptExecutor jsExecutor = (JavascriptExecutor) Driver;
+        var wait = new WebDriverWait(getDriver(), Duration.ofSeconds(30));
+        JavascriptExecutor jsExecutor = (JavascriptExecutor) getDriver();
 
-        ExpectedCondition<Boolean> jsLoad = webDriver ->  ((JavascriptExecutor) Driver)
+        ExpectedCondition<Boolean> jsLoad = webDriver ->  ((JavascriptExecutor) getDriver())
                 .executeScript("return document.readyState").toString().equals("complete");
 
         //Get Js ready state
@@ -36,17 +50,17 @@ public class DriverContext extends Base{
     }
 
     public static void WaitForVisible(final WebElement element){
-        WebDriverWait wait = new WebDriverWait(Driver, Duration.ofSeconds(30));
+        var wait = new WebDriverWait(getDriver(), Duration.ofSeconds(30));
         wait.until(ExpectedConditions.visibilityOf(element));
     }
 
     public static void WaitForTextVisible(final WebElement element, String text){
-        WebDriverWait wait = new WebDriverWait(Driver, Duration.ofSeconds(30));
+        var wait = new WebDriverWait(getDriver(), Duration.ofSeconds(30));
         wait.until(ExpectedConditions.textToBePresentInElement(element, text));
     }
 
     public static void WaitUntilTextDisplayed(final By by, String text){
-        WebDriverWait wait = new WebDriverWait(Driver, Duration.ofSeconds(30));
+        var wait = new WebDriverWait(getDriver(), Duration.ofSeconds(30));
         wait.until(textDisplayed(by, text));
     }
 
@@ -55,12 +69,12 @@ public class DriverContext extends Base{
     }
 
     public static void WaitForEnabled(final By by){
-        WebDriverWait wait = new WebDriverWait(Driver, Duration.ofSeconds(30));
+        var wait = new WebDriverWait(getDriver(), Duration.ofSeconds(30));
         wait.until(webDriver -> webDriver.findElement(by).isEnabled());
     }
 
     public static void WaitForClickable(WebElement element){
-        WebDriverWait wait = new WebDriverWait(Driver, Duration.ofSeconds(30));
+        var wait = new WebDriverWait(getDriver(), Duration.ofSeconds(30));
         wait.until(ExpectedConditions.elementToBeClickable(element));
     }
 }
