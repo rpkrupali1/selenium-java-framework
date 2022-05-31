@@ -10,9 +10,13 @@ import java.util.List;
 
 public class ControlBase implements Control{
     private final WebElement element;
+    private final String elementName;
+    private final String pageName;
 
-    public ControlBase(WebElement element) {
+    public ControlBase(WebElement element, String elementName, String pageName) {
         this.element= element;
+        this.elementName = elementName;
+        this.pageName = pageName;
     }
 
     @Override
@@ -21,8 +25,7 @@ public class ControlBase implements Control{
         waitForClickable();
         element.click();
         DriverContext.waitForPageToLoad();
-        Settings.Logs.Write("Clicked on element");
-        Settings.Report.info("Clicked on element");
+        Settings.Report.info("Clicked on element " + elementName + " in " + pageName);
     }
 
     @Override
@@ -33,7 +36,7 @@ public class ControlBase implements Control{
     @Override
     public void sendKeys(CharSequence... keysToSend) {
         element.sendKeys(keysToSend);
-        Settings.Logs.Write("Entered text " + Arrays.toString(keysToSend) + " for element");
+        Settings.Logs.write("Entered text " + Arrays.toString(keysToSend) + " for element");
     }
 
     @Override

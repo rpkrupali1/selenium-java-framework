@@ -1,9 +1,11 @@
 package core.framework.controls.elements;
 
-import core.framework.controls.api.ImplementedBy;
-import core.framework.controls.internals.Control;
+import core.framework.controls.internals.ControlBase;
+import org.openqa.selenium.WebElement;
 
-@ImplementedBy(ElementBase.class)
-public interface Element extends Control {
+public class Element extends ControlBase {
+    public Element(WebElement element, String elementName, String pageName) {
+        super(element, elementName, pageName);
+    }
 
 }
