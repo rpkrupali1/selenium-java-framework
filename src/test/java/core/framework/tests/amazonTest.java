@@ -8,9 +8,12 @@ import core.framework.config.Settings;
 import core.framework.pages.HomePage;
 import core.framework.pages.ProductDetailPage;
 import core.framework.pages.ProductListingPage;
+import core.framework.utilities.ExtentReport;
 import core.framework.utilities.Logs;
 
+import core.framework.utilities.Report;
 import org.testng.Assert;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
@@ -22,6 +25,10 @@ public class amazonTest extends FrameworkInitialize {
         ConfigReader.PopulateSettings();
         Settings.Logs = new Logs();
         Settings.Logs.CreateLogFile();
+        Settings.Report = new Report();
+        Settings.ExtentReports = ExtentReport.getInstance();
+        var node = Settings.ExtentReports.createTest("Test1");
+        ExtentReport.setTest(node);
         InitializeBrowser(BrowserType.Chrome);
         Settings.Logs.Write("Test Started");
         DriverContext.maximize();
@@ -95,7 +102,11 @@ public class amazonTest extends FrameworkInitialize {
         }
         Assert.assertEquals(CurrentPage.As(ProductDetailPage.class).isAboutThisHeaderDisplayed(),true);
         System.out.println(CurrentPage.As(ProductDetailPage.class).getProductDetails());
+    }
 
+    @AfterTest
+    public void endTest(){
         DriverContext.getDriver().quit();
+        Settings.ExtentReports.flush();
     }
 }

@@ -2,7 +2,6 @@ package core.framework.utilities;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
-//import com.aventstack.extentreports.reporter.KlovReporter;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
 
@@ -27,10 +26,10 @@ public class ExtentReport {
         return extent;
     }
 
-    private static ExtentReports getInstance(){
+    public static ExtentReports getInstance(){
         if(extent==null) {
             //Set HTML reporting file location
-            String outputDirectory = System.getProperty("user.dir") + "/src/test/java/reports/report.html";
+            String outputDirectory = System.getProperty("user.dir") + "/src/test/java/core/framework/reports/report.html";
             createInstance(outputDirectory);
         }
         return extent;
@@ -40,7 +39,7 @@ public class ExtentReport {
         threadLocalTest.set(test);
     }
 
-    private static ExtentTest getTest(){
+    public static ExtentTest getTest(){
         return threadLocalTest.get();
     }
 }

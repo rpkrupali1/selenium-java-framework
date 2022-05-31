@@ -22,6 +22,7 @@ public class ControlBase implements Control{
         element.click();
         DriverContext.waitForPageToLoad();
         Settings.Logs.Write("Clicked on element");
+        Settings.Report.info("Clicked on element");
     }
 
     @Override
