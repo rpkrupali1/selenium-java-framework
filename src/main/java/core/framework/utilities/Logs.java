@@ -32,7 +32,7 @@ public class Logs {
     }
 
     //write messages within log
-    public void Write(String message){
+    public void write(String message){
         try {
             formatter = DateTimeFormatter.ofPattern("MM-dd-yyyy hh:mm:ss a");
             String dateFormat = date.format(formatter);

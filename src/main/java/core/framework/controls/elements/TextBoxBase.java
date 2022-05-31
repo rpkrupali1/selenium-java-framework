@@ -4,8 +4,8 @@ import core.framework.controls.internals.ControlBase;
 import org.openqa.selenium.WebElement;
 
 public class TextBoxBase extends ControlBase implements TextBox  {
-    public TextBoxBase(WebElement element) {
-        super(element);
+    public TextBoxBase(WebElement element, String elementName,String pageName) {
+        super(element,elementName,pageName);
     }
 
     @Override
