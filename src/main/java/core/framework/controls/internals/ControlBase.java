@@ -66,7 +66,9 @@ public class ControlBase implements Control{
 
     @Override
     public String getText() {
-        return element.getText();
+        String text = element.getText();
+        Settings.Report.info("Text of an element " + elementName + " is <br />" + text + " within " + pageName);
+        return text;
     }
 
     @Override
