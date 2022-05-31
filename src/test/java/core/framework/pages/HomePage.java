@@ -37,17 +37,13 @@ public class HomePage extends BasePage {
         return new Element(getElement("xpath","//*[@id='nav-hamburger-menu']"),"hamburger name","home page");
     }
 
-    public void navigateToTelevision() throws InterruptedException {
+    public void navigateToTelevision(){
         eleHamburgerMenu().click();
-        Thread.sleep(1000);
         eleDepartment().click();
-        //Thread.sleep(1000);
         eleSubSection().click();
-        //Thread.sleep(1000);
     }
 
-    public void filterBySamsung() throws InterruptedException {
+    public void filterBySamsung(){
         eleBrand().click();
-        //Thread.sleep(1000);
     }
 }

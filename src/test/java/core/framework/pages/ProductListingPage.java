@@ -27,16 +27,13 @@ public class ProductListingPage extends BasePage {
     public Element eleSecondProduct() {
         return new Element(getElement("xpath","//*[@data-component-type='s-search-result'][2]"),"Second product from search listing","product listing page");
     }
-    public void sortByPriceHighToLow() throws InterruptedException {
+    public void sortByPriceHighToLow(){
         eleSortBy().click();
-        //Thread.sleep(1000);
         elePriceHighToLow().click();
-        //Thread.sleep(1000);
     }
 
-    public ProductDetailPage clickOnSecondProductListing() throws InterruptedException {
+    public ProductDetailPage clickOnSecondProductListing(){
         eleSecondProduct().click();
-        //Thread.sleep(1000);
         return GetInstance(ProductDetailPage.class);
     }
 }
