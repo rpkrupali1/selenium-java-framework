@@ -10,6 +10,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.function.Function;
 
 public class DriverContext extends Base{
 //    public static WebDriver Driver;
@@ -45,8 +46,6 @@ public class DriverContext extends Base{
 
         if(!jsReady)
             wait.until(jsLoad);
-        else
-            Settings.Logs.Write("Page is ready !");
     }
 
     public static void waitForVisible(final WebElement element){
@@ -76,5 +75,36 @@ public class DriverContext extends Base{
     public static void waitForClickable(WebElement element){
         var wait = new WebDriverWait(getDriver(), Duration.ofSeconds(30));
         wait.until(ExpectedConditions.elementToBeClickable(element));
+    }
+
+    public static WebElement findElement(String locatorType, String locatorID){
+        var wait = new WebDriverWait(getDriver(), Duration.ofSeconds(30));
+        WebElement element = wait.until(new Function<WebDriver, WebElement>() {
+            @Override
+            public WebElement apply(WebDriver driver) {
+                switch (locatorType) {
+                    case "xpath":
+                        return getDriver().findElement(By.xpath(locatorID));
+                    case "id":
+                        return getDriver().findElement(By.id(locatorID));
+                    case "classname":
+                        return getDriver().findElement(By.className(locatorID));
+                    case "css":
+                    case "cssselector":
+                        return getDriver().findElement(By.cssSelector(locatorID));
+                    case "linktext":
+                        return getDriver().findElement(By.linkText(locatorID));
+                    case "name":
+                        return getDriver().findElement(By.name(locatorID));
+                    case "partiallinktext":
+                        return getDriver().findElement(By.partialLinkText(locatorID));
+                    case "tagName":
+                        return getDriver().findElement(By.tagName(locatorID));
+                }
+                Settings.Report.fail("locator type: " + locatorType + " is invalid, please correct your locator name in csv file");
+                return null;
+            }
+        });
+        return element;
     }
 }
