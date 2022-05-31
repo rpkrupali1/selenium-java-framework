@@ -7,17 +7,17 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
 public class ProductDetailPage extends BasePage {
-    @FindBy(how = How.XPATH, using = "//h1[normalize-space()='About this item']")
-    private iElement eleAboutThisHeader;
+//    @FindBy(how = How.XPATH, using = "//h1[normalize-space()='About this item']")
+//    private iElement eleAboutThisHeader;
+//
+//    @FindBy(how = How.XPATH, using = "//h1[normalize-space()='About this item']/following-sibling::ul")
+//    private iElement eleProductDescription;
 
-    @FindBy(how = How.XPATH, using = "//h1[normalize-space()='About this item']/following-sibling::ul")
-    private iElement eleProductDescription;
-
-    public static Element eleAboutThisHeader() {
+    public Element eleAboutThisHeader() {
         return new Element(getElement("xpath","//h1[normalize-space()='About this item']"),"About this header","product detail page");
     }
 
-    public static Element eleProductDescription() {
+    public Element eleProductDescription() {
         return new Element(getElement("xpath","//h1[normalize-space()='About this item']/following-sibling::ul"),"Product description","product detail page");
     }
 

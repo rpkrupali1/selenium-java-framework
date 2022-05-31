@@ -21,19 +21,19 @@ public class HomePage extends BasePage {
 //    @FindBy(how = How.XPATH, using = "//div[*[text()='Brands']]/following::ul//*[*[text()='Samsung']]/div[contains(@class,'checkbox')]")
 //    private iElement eleBrand;
 
-    public static Element eleDepartment() {
+    public Element eleDepartment() {
         return new Element(getElement("xpath","//*[@id='hmenu-content']//a[*[text()='TV, Appliances, Electronics']]"),"TV department","home page");
     }
 
-    public static Element eleSubSection() {
+    public Element eleSubSection() {
         return new Element(getElement("xpath","//*[text()='Televisions']"),"television","home page");
     }
 
-    public static Element eleBrand() {
+    public Element eleBrand() {
         return new Element(getElement("xpath","//div[*[text()='Brands']]/following::ul//*[*[text()='Samsung']]/div[contains(@class,'checkbox')]"),"brand","home page");
     }
 
-    public static Element eleHamburgerMenu() {
+    public Element eleHamburgerMenu() {
         return new Element(getElement("xpath","//*[@id='nav-hamburger-menu']"),"hamburger name","home page");
     }
 

@@ -16,15 +16,15 @@ public class ProductListingPage extends BasePage {
 //    @FindBy(how = How.XPATH, using = "//*[@data-component-type='s-search-result'][2]")
 //    private iElement eleSecondProduct;
 
-    public static Element eleSortBy() {
+    public Element eleSortBy() {
         return new Element(getElement("xpath","//span[*[text()='Sort by:']]"),"Sort by dropdown","product listing page");
     }
 
-    public static Element elePriceHighToLow() {
+    public Element elePriceHighToLow() {
         return new Element(getElement("xpath","//*[@class='a-popover-inner']/ul/li/a[text()='Price: High to Low']"),"Price high to low option","product listing page");
     }
 
-    public static Element eleSecondProduct() {
+    public Element eleSecondProduct() {
         return new Element(getElement("xpath","//*[@data-component-type='s-search-result'][2]"),"Second product from search listing","product listing page");
     }
     public void sortByPriceHighToLow() throws InterruptedException {
