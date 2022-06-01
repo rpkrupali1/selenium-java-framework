@@ -105,4 +105,11 @@
           </plugin>
       </plugins>
   </build>
+  <distributionManagement>
+    <repository>
+      <id>github</id>
+      <name>GitHub rpkrupali1 Apache Maven Packages</name>
+      <url>https://maven.pkg.github.com/rpkrupali1/selenium-java-framework</url>
+    </repository>
+  </distributionManagement>
 </project>

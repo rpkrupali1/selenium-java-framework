@@ -11,7 +11,7 @@ public class ConfigReader {
     }
     private void ReadProperty() throws IOException {
         Properties p = new Properties();
-        var inputStream = new FileInputStream("src/main/java/core/framework/config/GlobalConfig.properties");
+        var inputStream = new FileInputStream(System.getProperty("user.dir") + "/src/main/java/core/framework/config/GlobalConfig.properties");
         //p.load(getClass().getResourceAsStream("GlobalConfig.properties"));
         p.load(inputStream);
         Settings.LogPath = p.getProperty("LogPath");
