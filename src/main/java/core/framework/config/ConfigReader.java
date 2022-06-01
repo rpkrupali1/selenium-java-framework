@@ -18,5 +18,7 @@ public class ConfigReader {
         //var inputStream = getClass().getResourceAsStream("GlobalConfig.properties");
         Settings.LogPath = p.getProperty("LogPath");
         Settings.ReportPath = p.getProperty("ReportPath");
+        Settings.RemoteDriverUrl = p.getProperty("RemoteDriverUrl");
+        Settings.ExecutionEnv = p.getProperty("ExecutionEnv");
     }
 }

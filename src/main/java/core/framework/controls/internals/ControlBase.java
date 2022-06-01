@@ -8,6 +8,8 @@ import org.openqa.selenium.interactions.Coordinates;
 import java.util.Arrays;
 import java.util.List;
 
+import static core.framework.base.DriverContext.getDriver;
+
 public class ControlBase implements Control{
     private final WebElement element;
     private final String elementName;
@@ -21,11 +23,16 @@ public class ControlBase implements Control{
 
     @Override
     public void click() {
-        waitForVisible();
-        waitForClickable();
-        element.click();
-        DriverContext.waitForPageToLoad();
-        Settings.Report.info("Clicked on element " + elementName + " in " + pageName);
+        try{
+            waitForVisible();
+            waitForClickable();
+            element.click();
+            DriverContext.waitForPageToLoad();
+            Settings.Report.info("Clicked on element " + elementName + " in " + pageName);
+        }
+        catch (Exception e){
+            Settings.Report.exception(e);
+        }
     }
 
     @Override
@@ -121,13 +128,22 @@ public class ControlBase implements Control{
         return null;
     }
 
-    ControlBase waitForVisible(){
+    @Override
+    public ControlBase waitForVisible(){
         DriverContext.waitForVisible(getWrappedElement());
         return this;
     }
 
-    ControlBase waitForClickable(){
+    @Override
+    public ControlBase waitForClickable(){
         DriverContext.waitForClickable(getWrappedElement());
+        return this;
+    }
+
+    @Override
+    public ControlBase scrollToElement() {
+        JavascriptExecutor jse = (JavascriptExecutor)getDriver();
+        jse.executeScript("arguments[0].scrollIntoView()", getWrappedElement());
         return this;
     }
 }
