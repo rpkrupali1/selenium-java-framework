@@ -17,5 +17,6 @@ public class ConfigReader {
         p.load(inputStream);
         //var inputStream = getClass().getResourceAsStream("GlobalConfig.properties");
         Settings.LogPath = p.getProperty("LogPath");
+        Settings.ReportPath = p.getProperty("ReportPath");
     }
 }

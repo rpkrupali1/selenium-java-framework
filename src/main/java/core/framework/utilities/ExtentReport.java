@@ -4,7 +4,11 @@ import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
+import core.framework.config.Settings;
 
+import java.io.File;
+import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -12,7 +16,10 @@ public class ExtentReport {
     private static ExtentReports extent;
     static Map<Integer, ExtentTest> extentTestMap = new HashMap<Integer, ExtentTest>();
     public static ThreadLocal<ExtentTest> threadLocalTest = new ThreadLocal<>();
-    private static String reportFileName = "AutomationReport.html";
+    private static String reportFileName = "AutomationReport";
+    private static ZonedDateTime date = ZonedDateTime.now();
+    private static DateTimeFormatter formatter = DateTimeFormatter.ofPattern("ddMMyyyyHHMMSS");
+    private static String fileNameFormat = date.format((formatter));
 
     private static ExtentReports createInstance(String fileName){
         ExtentSparkReporter spark = new ExtentSparkReporter(fileName);
@@ -29,8 +36,11 @@ public class ExtentReport {
     public static ExtentReports getInstance(){
         if(extent==null) {
             //Set HTML reporting file location
-            String outputDirectory = System.getProperty("user.dir") + "/src/test/java/core/framework/reports/report.html";
-            createInstance(outputDirectory);
+            var outputDirectory = new File(System.getProperty("user.dir") + Settings.ReportPath);
+            if(!outputDirectory.exists())
+                outputDirectory.mkdir();
+            //String outputDirectory = System.getProperty("user.dir") + "/src/test/java/core/framework/reports/report.html";
+            createInstance(outputDirectory + "/" + reportFileName + fileNameFormat  + ".html" );
         }
         return extent;
     }
