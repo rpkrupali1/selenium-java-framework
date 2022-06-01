@@ -13,4 +13,5 @@ public class Settings {
     public static ExtentReports ExtentReports;
 
     public static ExtentTest ExtentTest;
+    public static String ReportPath;
 }
