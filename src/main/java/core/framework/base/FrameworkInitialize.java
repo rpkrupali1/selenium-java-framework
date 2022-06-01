@@ -2,6 +2,7 @@ package core.framework.base;
 
 import core.framework.DriverManager.Execution;
 import core.framework.DriverManager.LocalDriver;
+import core.framework.DriverManager.RemoteDriver;
 import core.framework.config.Settings;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
@@ -36,9 +37,11 @@ public class FrameworkInitialize extends Base {
 //            }
 //        }
 
-        if(Settings.ExecutionEnv.equals("local")){
-            execution = new LocalDriver();
+        if(Settings.ExecutionEnv.equals("remote")){
+            execution = new RemoteDriver();
         }
+        else
+            execution = new LocalDriver();
         driver = execution.initiateBrowser(browserType);
         //set the driver
         //DriverContext.setDriver(driver);
