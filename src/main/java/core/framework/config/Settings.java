@@ -14,4 +14,6 @@ public class Settings {
 
     public static ExtentTest ExtentTest;
     public static String ReportPath;
+    public static String ExecutionEnv;
+    public static String RemoteDriverUrl;
 }
