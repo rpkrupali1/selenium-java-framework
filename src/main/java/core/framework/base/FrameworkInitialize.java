@@ -1,5 +1,6 @@
 package core.framework.base;
 
+import core.framework.DriverManager.DockerDriver;
 import core.framework.DriverManager.Execution;
 import core.framework.DriverManager.LocalDriver;
 import core.framework.DriverManager.RemoteDriver;
@@ -39,6 +40,9 @@ public class FrameworkInitialize extends Base {
 
         if(Settings.ExecutionEnv.equals("remote")){
             execution = new RemoteDriver();
+        }
+        else if(Settings.ExecutionEnv.equals("docker")){
+            execution = new DockerDriver();
         }
         else
             execution = new LocalDriver();
