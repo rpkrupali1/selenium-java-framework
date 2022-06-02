@@ -48,3 +48,17 @@ MAVEN for:
 - Deploy
 - Test
 - Report
+
+Docker grid for Selenium
+docker run -d -p 4444:4444 -p 7900:7900 --shm-size="2g" selenium/standalone-chrome:4.2.1-20220531
+http://localhost:4444/ui
+http://localhost:7900/
+connect password - secret
+
+
+---------------
+
+docker build -t framework-selenium:latest .
+docker run -it --name framework-selenium-container framework-selenium:latest /bin/bash
+mvn clean test
+
