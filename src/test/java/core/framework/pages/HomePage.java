@@ -38,7 +38,9 @@ public class HomePage extends BasePage {
     }
 
     public void navigateToTelevision(){
+        DriverContext.waitForPageToLoad();
         eleHamburgerMenu().click();
+        eleDepartment().scrollToElement();
         eleDepartment().click();
         eleSubSection().click();
     }

@@ -1,7 +1,5 @@
 package core.framework.config;
 
-import core.framework.App;
-
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
@@ -18,7 +16,13 @@ public class ConfigReader {
         //var inputStream = getClass().getResourceAsStream("GlobalConfig.properties");
         Settings.LogPath = p.getProperty("LogPath");
         Settings.ReportPath = p.getProperty("ReportPath");
-        Settings.RemoteDriverUrl = p.getProperty("RemoteDriverUrl");
-        Settings.ExecutionEnv = p.getProperty("ExecutionEnv");
+
+        if(System.getProperty("RemoteDriverUrl")!=null)
+            Settings.RemoteDriverUrl = System.getProperty("RemoteDriverUrl");
+        else Settings.RemoteDriverUrl = p.getProperty("RemoteDriverUrl");
+
+        if(System.getProperty("ExecutionEnv")!=null)
+            Settings.ExecutionEnv = System.getProperty("ExecutionEnv");
+        else Settings.ExecutionEnv = p.getProperty("ExecutionEnv");
     }
 }

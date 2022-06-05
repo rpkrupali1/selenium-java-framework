@@ -33,7 +33,6 @@ public class amazonTest extends FrameworkInitialize {
         Settings.Logs.write("Navigated to url https://www.amazon.in/");
     }
 
-
     @Test
     public void shoppingTest() {
         //navigate to television and filter by brand
