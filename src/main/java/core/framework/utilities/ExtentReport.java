@@ -36,10 +36,9 @@ public class ExtentReport {
     public static ExtentReports getInstance(){
         if(extent==null) {
             //Set HTML reporting file location
-            var outputDirectory = new File(System.getProperty("user.dir") + Settings.ReportPath);
+            var outputDirectory = new File(System.getProperty("user.dir") + Settings.TestOutputPath);
             if(!outputDirectory.exists())
                 outputDirectory.mkdir();
-            //String outputDirectory = System.getProperty("user.dir") + "/src/test/java/core/framework/reports/report.html";
             createInstance(outputDirectory + "/" + reportFileName + fileNameFormat  + ".html" );
         }
         return extent;

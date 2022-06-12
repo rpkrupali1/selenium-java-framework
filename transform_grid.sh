@@ -11,3 +11,4 @@ done
 mvn clean test \
     -DExecutionEnv="remote" \
     -DRemoteDriverUrl=$RemoteDriverUrl
+
