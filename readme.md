@@ -8,7 +8,7 @@
 * [Overview](#overview)
   * [Why Page Object Model (POM)](#why-page-object-model-(POM)?)
   * [Page Navigation](#page-navigation)
-  * [Configuration](#configuration:)
+  * [Configuration](#configuration)
 * [Tests](#tests:)
   * [Run Tests in local](#run-tests-in-local)
   * [Run Tests in Grid](#run-tests-in-grid)
@@ -85,5 +85,12 @@ src -> test -> java
 - You can provide **RemoteDriverUrl** while running the docker file
 - Build the image with dockerfile using command ```docker build -t framework-selenium:latest .```
 - Run the container with command as 
-  ```docker run -e RemoteDriverUrl=http://192.168.1.7:4444 framework-selenium:latest```
-  Replace RemoteDriverUrl to url where [grid is running](#how-to-run-selenium-grid) (** make sure to use IP address instead of localhost in url)
+  ```docker run --name framework-selenium-container -e RemoteDriverUrl=http://192.168.1.7:4444 framework-selenium:latest ```
+  Replace RemoteDriverUrl value to url where [grid is running](#how-to-run-selenium-grid) (** make sure to use IP address instead of localhost in url)
+
+
+
+ selenium-java-framework\framework\src\test\java\core\framework\reports
+
+
+docker run -e RemoteDriverUrl=http://192.168.1.7:4444 -v selenium:/app/src/test/java/core/framework/reports framework-selenium:latest
