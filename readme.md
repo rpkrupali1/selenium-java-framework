@@ -13,6 +13,7 @@
   * [Run Tests in local](#run-tests-in-local)
   * [Run Tests in Grid](#run-tests-in-grid)
   * [Run the entire framework as docker using selenium grid](#run-the-entire-framework-as-docker-using-selenium-grid)
+* [What's Next?](#whats-next)
 ****
 
 
@@ -89,7 +90,36 @@ src -> test -> java
   Replace RemoteDriverUrl value to url where [grid is running](#how-to-run-selenium-grid) (** make sure to use IP address instead of localhost in url)
 - And also replace volume mount path to where you want to see your test output
 
+# Technologies Used:
+- Java
+- Selenium
+- Extent Report
+- Docker
+- Maven
+- TestNG
 
-  
+# What's Next?
+Please find below features/enhancements those are either in progress or planned:
+- Docker run entire framework without using selenium grid
+- Unit Tests for framework
+- Add Screenshot in the report
+- Add video for execution run
+- Segregation of repositories between framework and test projects
+- Docker compose creation with additional parameterization (entire config file parameterization like browser, browser version etc.)
+- Running Selenium with Kubernetes/EKS
+- Add BDD Capability and use based on need
+- More customization for configuration: User can provide more customization based on need like
+  - Need Report? Yes/No
+  - Need Logs? Yes/No
+  - Write tests using BDD? Yes/No
+  - Need screenshots ? Yes/No etc
+- Create UI to:
+  - Trigger tests
+  - See logs/reports
+  - Historical test result
+  - Test result trends etc.
+
+# Contributor
+Krupali Pilgulwar
 
 
