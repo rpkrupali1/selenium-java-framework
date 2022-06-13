@@ -13,9 +13,7 @@ public class ConfigReader {
         Properties p = new Properties();
         var inputStream = new FileInputStream(System.getProperty("user.dir") + "/src/test/java/GlobalConfig.properties");
         p.load(inputStream);
-        //var inputStream = getClass().getResourceAsStream("GlobalConfig.properties");
-        Settings.LogPath = p.getProperty("LogPath");
-        Settings.ReportPath = p.getProperty("ReportPath");
+        Settings.TestOutputPath=p.getProperty("TestOutputPath");
 
         if(System.getProperty("RemoteDriverUrl")!=null)
             Settings.RemoteDriverUrl = System.getProperty("RemoteDriverUrl");
