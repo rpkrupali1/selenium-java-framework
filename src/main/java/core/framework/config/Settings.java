@@ -6,14 +6,14 @@ import core.framework.utilities.Logs;
 import core.framework.utilities.Report;
 
 public class Settings {
-    public static String LogPath;
     public static Logs Logs;
     public static Report Report;
 
     public static ExtentReports ExtentReports;
 
     public static ExtentTest ExtentTest;
-    public static String ReportPath;
     public static String ExecutionEnv;
     public static String RemoteDriverUrl;
+
+    public static String TestOutputPath;
 }

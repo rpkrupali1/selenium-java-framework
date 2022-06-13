@@ -4,3 +4,4 @@ target
 /.idea/
 /src/test/java/core/framework/logs/
 *.html
+src/test/java/core/framework/output/

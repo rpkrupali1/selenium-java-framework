@@ -17,8 +17,7 @@ public class Logs {
     //create log file
     public void CreateLogFile(){
         try {
-            //var dir = new File(System.getProperty("user.dir") + "/src/test/java/core/framework/logs");
-            var dir = new File(System.getProperty("user.dir") +Settings.LogPath);
+            var dir = new File(System.getProperty("user.dir") +Settings.TestOutputPath);
             if(!dir.exists())
                 dir.mkdir();
             //create file
